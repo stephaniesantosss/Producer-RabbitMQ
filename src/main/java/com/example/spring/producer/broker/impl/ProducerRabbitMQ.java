@@ -23,7 +23,7 @@ public class ProducerRabbitMQ implements AmqpProducer<Message> {
     @Override
     public void producer(Message message) {
         try {
-            // enviando a msg para o consumer
+            // enviando a msg para a fila
             rabbitTemplate.convertAndSend(exchange, queue, message);
         } catch (Exception exception) {
             // Quando ocorrer uma exceção ele irá mandar nossa msg para fila dlq
