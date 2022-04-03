@@ -1,0 +1,20 @@
+version: '3'
+
+networks:
+  message_broker_network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.6.0/24
+
+services:
+  rabbitmq:
+    container_name: rabbitmq
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    volumes:
+      - ./config/rabbitmq:/etc/rabbitmq/rabbitmq.config
+    networks:
+      - message_broker_network

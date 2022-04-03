@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ProducerRabbitMQ implements AmqpProducer<Message> {
+public class ProducerRabbitMQImpl implements AmqpProducer<Message> {
 
     @Autowired
     private RabbitTemplate rabbitTemplate;
